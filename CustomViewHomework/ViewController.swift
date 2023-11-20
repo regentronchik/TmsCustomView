@@ -10,11 +10,21 @@ import UIKit
 class ViewController: UIViewController /*FirstViewDelegate*/ {
 
     let customView = FirstView(frame: .zero)
+    let joystickView = JoystickView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let joystickView = JoystickView(frame: CGRect(x: 50, y: 300, width: 150, height: 150))
+      
+         joystickView.translatesAutoresizingMaskIntoConstraints = false
+         view.addSubview(joystickView)
+         
+         NSLayoutConstraint.activate([
+            joystickView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            joystickView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+            joystickView.widthAnchor.constraint(equalToConstant: 200),
+            joystickView.heightAnchor.constraint(equalToConstant: 200)
+         ])
+
         joystickView.backgroundColor = .gray
         joystickView.buttonPressed = { direction in
                     print("Pressed \(direction) button")}

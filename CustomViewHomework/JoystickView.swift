@@ -8,33 +8,61 @@ class JoystickView: UIView {
         super.init(frame: frame)
         
         
-        let upImageView = UIImageView(frame: CGRect(x: frame.width/2 - 25, y: 0, width: 50, height: 50))
+        let upImageView = UIImageView()
             upImageView.image = UIImage(named: "upArrow")
             upImageView.isUserInteractionEnabled = true
             let upTapGesture = UITapGestureRecognizer(target: self, action: #selector(upButtonPressed))
             upImageView.addGestureRecognizer(upTapGesture)
             addSubview(upImageView)
         
-        let downImageView = UIImageView(frame: CGRect(x: frame.width/2 - 25, y: frame.height - 50, width: 50, height: 50))
+        let downImageView = UIImageView()
             downImageView.image = UIImage(named: "downArrow")
             downImageView.isUserInteractionEnabled = true
             let downTapGesture = UITapGestureRecognizer(target: self, action: #selector(downButtonPressed))
             downImageView.addGestureRecognizer(downTapGesture)
             addSubview(downImageView)
         
-        let rightImageView = UIImageView(frame: CGRect(x: frame.width - 50, y: frame.height/2 - 25, width: 50, height: 50))
+        let rightImageView = UIImageView()
             rightImageView.image = UIImage(named: "rightArrow")
             rightImageView.isUserInteractionEnabled = true
             let rightTapGesture = UITapGestureRecognizer(target: self, action: #selector(rightButtonPressed))
             rightImageView.addGestureRecognizer(rightTapGesture)
             addSubview(rightImageView)
         
-        let leftImageView = UIImageView(frame: CGRect(x: 0, y: frame.height/2 - 25, width: 50, height: 50))
+        let leftImageView = UIImageView()
             leftImageView.image = UIImage(named: "leftArrow")
             leftImageView.isUserInteractionEnabled = true
             let leftTapGesture = UITapGestureRecognizer(target: self, action: #selector(leftButtonPressed))
             leftImageView.addGestureRecognizer(leftTapGesture)
             addSubview(leftImageView)
+        
+        upImageView.translatesAutoresizingMaskIntoConstraints = false
+        upImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        upImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        upImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        upImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                
+        downImageView.translatesAutoresizingMaskIntoConstraints = false
+        downImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        downImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        downImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        downImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                
+        leftImageView.translatesAutoresizingMaskIntoConstraints = false
+        leftImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        leftImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        leftImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        leftImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                
+        rightImageView.translatesAutoresizingMaskIntoConstraints = false
+        rightImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        rightImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+        rightImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        rightImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
